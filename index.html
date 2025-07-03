@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="./calc.css">
+    <link rel="icon" href="../claculator/image.png">
+</head>
+<body>
+    <h1>calculator</h1>
+    <h1 id="value">0</h1>
+    <div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>+</button>
+    </div>
+    <div>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>-</button>
+    </div>
+    <div>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>*</button>
+    </div>
+    <div>
+    <button>0</button>
+    <button>/</button>
+    <button>.</button>
+    <button>Clear</button>
+</div>
+<div>
+        <button id="equal">=</button>
+    </div>
+    <script>
+        var value=""
+        var result;
+        let h1=document.getElementById("value")
+        let btns= document.getElementsByTagName("button")
+        for(btn of btns){
+            btn.onclick=getValue
+        }
+        function getValue(e){
+            if(e.target.innerText=="="){
+               result= eval(value)
+               h1.innerText=`${result}`
+               value=result
+            }
+            else if(e.target.innerText=="Clear"){
+                h1.innerText="0"
+                result=0
+                value=""
+            }
+            else{
+                value+=e.target.innerText
+                h1.innerText=`${value}`
+            }
+        }
+    </script>
+</body>
+</html>
